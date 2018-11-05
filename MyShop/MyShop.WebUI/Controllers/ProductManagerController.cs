@@ -52,8 +52,6 @@ namespace MyShop.WebUI.Controllers
 
         public ActionResult Edit(string Id)
         {
-            
-
             Product product = context.Find(Id);
             if (product == null)
             {
@@ -62,7 +60,7 @@ namespace MyShop.WebUI.Controllers
             else {
 
                 ProductManagerViewModel viewModel = new ProductManagerViewModel();
-                viewModel.Product = new Product();
+                viewModel.Product = product;
                 viewModel.ProductCategories = productCategories.Collection();
 
                 return View(viewModel);
